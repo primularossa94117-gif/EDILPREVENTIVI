@@ -1,0 +1,1015 @@
+
+:root {
+  --primary: #1e3a8a;
+  --primary-dark: #172554;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --background: #f3f6fb;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --success: #15803d;
+  --danger: #dc2626;
+  --radius: 14px;
+  --shadow: 0 4px 18px rgba(15, 23, 42, .05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+/* ACCESSO */
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, #334f92 0, transparent 38%),
+    linear-gradient(135deg, #111c36, #1e3a8a);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 38px;
+  background: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+}
+
+.login-logo,
+.header-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.login-logo {
+  width: 66px;
+  height: 66px;
+  margin-bottom: 22px;
+  border-radius: 18px;
+  font-size: 25px;
+}
+
+.login-card h1 {
+  margin: 0 0 6px;
+  color: var(--primary-dark);
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -.7px;
+}
+
+.login-card > p {
+  margin-bottom: 28px;
+  color: var(--muted);
+}
+
+/* INTESTAZIONE */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px clamp(20px, 4vw, 54px);
+  background: linear-gradient(120deg, #111c36, #1e3a8a);
+  color: white;
+}
+
+.app-header .eyebrow {
+  margin-bottom: 5px;
+  color: #fdba74;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 850;
+  letter-spacing: -.8px;
+}
+
+.app-header p {
+  margin: 5px 0 0;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  font-size: 18px;
+}
+
+.header-actions .btn {
+  padding: 9px 16px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+/* NAVIGAZIONE */
+
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 13px clamp(16px, 4vw, 54px);
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 12px rgba(15,23,42,.035);
+  backdrop-filter: blur(12px);
+}
+
+.app-nav .nav-link {
+  padding: 10px 15px;
+  border-radius: 9px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background .2s, color .2s;
+}
+
+.app-nav .nav-link:hover {
+  background: #eff6ff;
+  color: var(--primary);
+}
+
+.app-nav .nav-link.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(30,58,138,.18);
+}
+
+/* CONTENUTO */
+
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 32px clamp(16px, 4vw, 54px) 55px;
+}
+
+.app-page {
+  animation: pageIn .22s ease-out;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 0 0 5px;
+  color: var(--primary-dark);
+  font-size: clamp(23px, 2.5vw, 29px);
+  font-weight: 850;
+  letter-spacing: -.6px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h3 {
+  margin-bottom: 18px;
+  color: var(--primary-dark);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.panel,
+.card,
+.stat-card {
+  margin-bottom: 22px;
+  padding: clamp(18px, 2.5vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* CAMPI */
+
+.form-label {
+  margin-bottom: 7px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.form-control,
+.form-select {
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #d5deea;
+  border-radius: 9px;
+  background-color: #fff;
+  color: var(--text);
+  font-size: 13px;
+  box-shadow: none;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+textarea.form-control {
+  min-height: 110px;
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #6486d9;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.11);
+}
+
+/* PULSANTI */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 39px;
+  padding: 9px 15px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 750;
+  transition: all .18s ease;
+}
+
+.btn-primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  border-color: #c7d2fe;
+  background: #eff6ff;
+  color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.btn-outline-secondary {
+  border-color: #d8e0eb;
+  background: #fff;
+  color: #475569;
+}
+
+.btn-outline-secondary:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.btn-light {
+  border-color: rgba(255,255,255,.35);
+  background: white;
+  color: var(--primary-dark);
+}
+
+.btn-light:hover {
+  background: #fff7ed;
+  color: var(--primary-dark);
+}
+
+/* NUMERO PREVENTIVO */
+
+.number-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 28px;
+  padding: 17px 20px;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  background: #fff7ed;
+}
+
+.number-banner span {
+  color: #9a3412;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.number-banner strong {
+  color: #c2410c;
+  font-size: 16px;
+  text-align: right;
+}
+
+/* LAVORAZIONI E TOTALI */
+
+.quote-lines {
+  display: grid;
+  gap: 14px;
+}
+
+.quote-lines > * {
+  min-width: 0;
+}
+
+.totals-panel {
+  padding: 22px;
+  border-color: #dbe5f3;
+  background: #f8faff;
+  box-shadow: none;
+}
+
+.total-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid #e4eaf3;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.total-row strong {
+  color: #1e293b;
+  font-size: 13px;
+  text-align: right;
+}
+
+.grand-total {
+  margin-top: 10px;
+  padding: 17px 0 3px;
+  border-top: 2px solid #cbd5e1;
+  border-bottom: 0;
+  color: var(--primary-dark);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.grand-total strong {
+  color: var(--primary);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 900;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+/* ARCHIVIO E LISTE */
+
+.record-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.record-list > * {
+  min-width: 0;
+}
+
+.record-list > div,
+.record-list > article {
+  border-radius: 11px;
+}
+
+#conteggioPreventivi {
+  font-weight: 700;
+}
+
+.alert {
+  border: 0;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.alert-warning {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.alert-danger {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* MODALE */
+
+.modal-content {
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15,23,42,.2);
+}
+
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: #f8faff;
+}
+
+.modal-title {
+  color: var(--primary-dark);
+  font-weight: 850;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+/* MESSAGGI */
+
+#messaggi {
+  padding: 0 clamp(16px, 4vw, 54px);
+}
+
+#messaggi:empty {
+  display: none;
+}
+
+/* TABELLE */
+
+.table {
+  --bs-table-bg: transparent;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.table thead th {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.table > :not(caption) > * > * {
+  padding: 12px;
+  border-bottom-color: var(--border);
+}
+
+/* SCROLLBAR */
+
+* {
+  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: thin;
+}
+
+/* SMARTPHONE E TABLET */
+
+@media (max-width: 768px) {
+  .app-header {
+    align-items: flex-start;
+    padding: 23px 18px;
+  }
+
+  .app-header h1 {
+    font-size: 25px;
+  }
+
+  .app-header p {
+    max-width: 240px;
+    font-size: 12px;
+  }
+
+  .header-mark {
+    display: none;
+  }
+
+  .header-actions .btn {
+    padding: 8px 11px;
+  }
+
+  .app-nav {
+    position: relative;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .app-nav .nav-link {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 10px 12px;
+  }
+
+  main {
+    padding: 23px 14px 38px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .section-heading h2 {
+    font-size: 23px;
+  }
+
+  .panel {
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .number-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+  }
+
+  .number-banner strong {
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .section-heading > .btn {
+    flex-shrink: 0;
+  }
+
+  .totals-panel {
+    padding: 16px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .login-card {
+    padding: 26px 21px;
+  }
+
+  .app-header {
+    gap: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 22px;
+  }
+
+  .section-heading {
+    flex-wrap: wrap;
+  }
+
+  .section-heading > .btn {
+    width: 100%;
+  }
+
+  .total-row {
+    gap: 10px;
+  }
+}
+
+/* STAMPA */
+
+@media print {
+  body,
+  .app-shell {
+    background: #fff !important;
+  }
+
+  .app-header,
+  .app-nav,
+  .form-actions,
+  #messaggi,
+  .section-heading > .btn {
+    display: none !important;
+  }
+
+  main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .panel {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
+
+/* ===== NUOVA GRAFICA INTERNA EDILPREVENTIVI ===== */
+
+:root {
+  --primary: #243b64;
+  --primary-dark: #172b4d;
+  --accent: #f28c28;
+  --accent-hover: #d97706;
+  --background: #edf1f7;
+  --surface: #ffffff;
+  --text: #263449;
+  --muted: #6b7a90;
+  --border: #d9e2ef;
+}
+
+/* Sfondo generale */
+body,
+.app-shell {
+  background: #edf1f7 !important;
+  color: #263449;
+}
+
+/* Area di lavoro */
+main {
+  background: #edf1f7;
+}
+
+/* Schede e moduli */
+.panel,
+.card,
+.stat-card {
+  background: #ffffff !important;
+  border: 1px solid #d9e2ef;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(36, 59, 100, 0.055);
+}
+
+/* Titoli interni */
+.section-heading h2,
+.panel h3,
+.modal-title {
+  color: #243b64 !important;
+}
+
+/* Intestazioni delle sezioni */
+.section-heading {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d9e2ef;
+}
+
+.section-heading p {
+  color: #6b7a90;
+}
+
+/* Campi di compilazione */
+.form-control,
+.form-select {
+  background-color: #f8faff;
+  border: 1px solid #d4deec;
+  color: #263449;
+  border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #ffffff;
+  border-color: #f28c28;
+  box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.14);
+}
+
+/* Pulsante principale */
+.btn-primary {
+  background: #f28c28 !important;
+  border-color: #f28c28 !important;
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.btn-primary:hover {
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+}
+
+/* Pulsanti secondari */
+.btn-outline-primary {
+  background: #edf3ff;
+  border-color: #d2def5;
+  color: #243b64;
+}
+
+.btn-outline-primary:hover {
+  background: #243b64;
+  border-color: #243b64;
+  color: #ffffff;
+}
+
+/* Banner numero preventivo */
+.number-banner {
+  background: #fff5e9 !important;
+  border: 1px solid #f5d4ad;
+}
+
+.number-banner span {
+  color: #87501a;
+}
+
+.number-banner strong {
+  color: #b85c08;
+}
+
+/* Riepilogo economico */
+.totals-panel {
+  background: #f5f8fd !important;
+  border: 1px solid #dbe5f3;
+}
+
+.total-row {
+  border-bottom-color: #e0e7f0;
+  color: #64748b;
+}
+
+.total-row strong {
+  color: #263449;
+}
+
+.grand-total {
+  border-top: 2px solid #cbd7e8;
+}
+
+.grand-total span,
+.grand-total strong {
+  color: #243b64;
+}
+
+.grand-total strong {
+  font-size: 25px;
+}
+
+/* Navigazione */
+.app-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #d9e2ef;
+}
+
+.app-nav .nav-link.active {
+  background: #243b64;
+  color: #ffffff;
+}
+
+/* Elenchi e tabelle */
+.table thead th {
+  background: #eaf0f8;
+  color: #243b64;
+}
+
+.table tbody tr:hover > * {
+  background-color: #f5f8fd;
+}
+
+/* Avvisi */
+.alert-warning {
+  background: #fff5e9;
+  color: #87501a;
+}
+
+.alert-danger {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+/* Separazioni */
+hr {
+  border-color: #d9e2ef;
+  opacity: 1;
+}
+
+/* Accesso */
+.login-card {
+  border-top: 5px solid #f28c28;
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  main {
+    background: #edf1f7;
+  }
+
+  .panel,
+  .card {
+    border-radius: 13px;
+  }
+}
+
+/* ===== CORREZIONE SFONDO INTERNO ===== */
+
+/* Sfondo generale dell'app */
+html,
+body,
+.app-shell,
+#appContent,
+main,
+.app-page {
+  background-color: #e8edf5 !important;
+}
+
+/* Pannelli interni */
+.panel,
+#page-creaPreventivo .panel,
+#page-archivioPreventivi > .panel,
+#page-listino > .panel,
+#page-clienti > .panel,
+#page-ditta > .panel {
+  background-color: #f5f7fb !important;
+  border: 1px solid #d7e0ed !important;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 18px rgba(30, 58, 138, 0.07) !important;
+}
+
+/* Scheda del riepilogo economico */
+.totals-panel {
+  background-color: #eaf0fa !important;
+}
+
+/* Banner numero preventivo */
+.number-banner {
+  background-color: #fff0dc !important;
+}
+
+/* Barre di navigazione */
+.app-nav {
+  background-color: #dce5f2 !important;
+}
+
+/* Schede di dettaglio */
+.modal-content,
+.modal-header {
+  background-color: #f5f7fb !important;
+}
+
+/* Campi compilabili: restano bianchi */
+.form-control,
+.form-select,
+textarea.form-control {
+  background-color: #ffffff !important;
+}
+
+/* Evita che le sezioni nascoste vengano mostrate */
+.d-none {
+  display: none !important;
+}
+/* ===== TEST DEFINITIVO SFONDO INTERNO ===== */
+
+html,
+body,
+body #appContent,
+body #appContent main {
+  background: #dbe5f1 !important;
+}
+
+/* Colora le pagine interne */
+#appContent [id^="page-"] {
+  background-color: #e8edf5 !important;
+}
+
+/* Mantiene i moduli leggibili */
+#appContent .panel,
+#appContent .card,
+#appContent .stat-card {
+  background-color: #f5f7fb !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.10) !important;
+}
+
+/* Campi bianchi */
+#appContent input,
+#appContent select,
+#appContent textarea {
+  background-color: #ffffff !important;
+}
+
+/* Non modificare le sezioni nascoste */
+#appContent .d-none {
+  display: none !important;
+}
+/* ===== SFONDO INTERNO EDILPREVENTIVI ===== */
+
+/* Sfondo generale dell'app */
+html,
+body,
+#appContent {
+  background-color: #e8edf5 !important;
+}
+
+/* Area principale e pagine */
+#appContent main,
+#appContent .app-page {
+  background-color: #e8edf5 !important;
+}
+
+/* Contenitori Bootstrap: trasparenti, così si vede lo sfondo */
+#appContent .container,
+#appContent .container-fluid,
+#appContent .row,
+#appContent [class*="col-"],
+#appContent .section-heading {
+  background-color: transparent !important;
+}
+
+/* Schede e moduli */
+#appContent .panel,
+#appContent .card,
+#appContent .stat-card,
+#appContent .totals-panel {
+  background-color: #ffffff !important;
+  border: 1px solid #d1dbe8 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.08);
+}
+
+/* Intestazioni dei moduli */
+#appContent h2,
+#appContent h3 {
+  color: #1e3a8a !important;
+}
+
+/* Campi di inserimento */
+#appContent input,
+#appContent select,
+#appContent textarea {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Mantiene nascosti gli elementi previsti dall'app */
+#appContent .d-none {
+  display: none !important;
+}
