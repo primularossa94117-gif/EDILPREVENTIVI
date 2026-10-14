@@ -263,34 +263,70 @@ document.querySelectorAll(".app-nav [data-page]").forEach(b =>
 
 $("formLogin").addEventListener("submit", async e => {
   e.preventDefault();
-
   const b = $("loginButton");
-  const loginInserito = $("loginEmail").value.trim();
-  const passwordInserita = $("loginPassword").value;
-
   $("loginErrore").classList.add("d-none");
   b.disabled = true;
   b.textContent = "Accesso...";
-
   try {
-    const emailFirebase =
-      loginInserito.toUpperCase() === "ADMIN"
-        ? "admin@edilpreventivi-ffca1.firebaseapp.com"
-        : loginInserito;
-
     await auth.signInWithEmailAndPassword(
-      emailFirebase,
-      passwordInserita
+      $("loginEmail").value.trim(), $("loginPassword").value
     );
   } catch (err) {
-    $("loginErrore").textContent =
-      "Login o password non corretti.";
+    $("loginErrore").textContent = err.message || "Accesso non riuscito.";
     $("loginErrore").classList.remove("d-none");
   } finally {
     b.disabled = false;
     b.textContent = "Accedi";
   }
 });
+
+$("logoutButton").addEventListener("click", async () => {
+  try { await auth.signOut(); }
+  catch (e) { erroreFirebase(e); }
+});
+
+auth.onAuthStateChanged(async utente => {
+  if (!utente) {
+    avvioCompletato = false;
+    $("loginScreen").classList.remove("d-none");
+    $("appContent").classList.add("d-none");
+    return;
+  }
+
+  if (utente.uid !== ADMIN_UID) {
+    await auth.signOut();
+    $("loginErrore").textContent = "Questo account non è autorizzato ad accedere all'app.";
+    $("loginErrore").classList.remove("d-none");
+    return;
+  }
+
+  $("loginScreen").classList.add("d-none");
+  $("appContent").classList.remove("d-none");
+
+  if (avvioCompletato) return;
+
+  try {
+    await avviaApp();
+    avvioCompletato = true;
+  } catch (e) {
+    erroreFirebase(e);
+  }
+});
+
+async function avviaApp() {
+  $("dataPreventivo").value = oggi();
+  await Promise.all([caricaListino(), caricaClienti(), caricaDitta()]);
+  await caricaPreventivi();
+  await migraNumeriStorici();
+
+  aggiornaSelectClienti();
+  renderListino();
+  renderClienti();
+  renderPreventivi();
+  aggiungiRigaPreventivo();
+  calcolaTotali();
+}
+
 /* =========================================================
    CARICAMENTO DATI FIRESTORE
    ========================================================= */
